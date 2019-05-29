@@ -77,6 +77,7 @@ http://localhost:<span class="hljs-number">58427</span>
 <ul>
 <li>The Merchant is already registered with Payment gateway.</li>
 <li>There is only one acquiring bank.</li>
+<li>Both the acquiring bank and payment gateway use the same encryption key to encrypt and decrypt credit card numbers.</li>
 <li>The request to be sent to the acquiring bank and the response to be received from the bank are flat. There is no hierarchy. Hence, the there is no object hierarchy in the Dtos.</li>
 <li>The bearer token NWY5MzAxNTU4OWZjZWEwMThmMGMyZDk3YmQwYTM1MDgxODZhOGI3ZDM2MDU5MWIwNTQ3ZDA3NDNk is used for authentication. It has to be added in the Authorization header in the client (example: Postman).</li>
 </ul>
