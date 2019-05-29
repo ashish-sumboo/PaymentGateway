@@ -19,7 +19,13 @@
 <ul>
 <li>Docker</li>
 </ul>
-<h3><a id="Endpoints_24"></a>Endpoints</h3>
+<h3><a id="Usage_24"></a>Usage</h3>
+<pre><code class="language-sh"><span class="hljs-comment"># build and start the API service</span>
+Run .\Build.ps1 <span class="hljs-keyword">in</span> PowerShell
+<span class="hljs-comment"># access</span>
+http://localhost:<span class="hljs-number">58427</span>
+</code></pre>
+<h3><a id="Endpoints_33"></a>Endpoints</h3>
 <p>Create Payment:</p>
 <pre><code class="language-sh">POST /api/v1/payments
 </code></pre>
@@ -41,3 +47,35 @@
   }
 }
 </code></pre>
+<p>Sample response</p>
+<pre><code class="language-sh">{
+    <span class="hljs-string">"code"</span>: <span class="hljs-number">8000</span>,
+    <span class="hljs-string">"message"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-string">"paymentId"</span>: <span class="hljs-string">"592d41b8-0e0b-4911-8320-cf2ee38de506"</span>
+}
+</code></pre>
+<p>Check Payment Status:</p>
+<pre><code class="language-sh">GET /api/v1/paymentstatus/{paymentId}
+</code></pre>
+<p>Sample response</p>
+<pre><code class="language-sh">{
+    <span class="hljs-string">"id"</span>: <span class="hljs-string">"MCB-098678-c8362b39-3d90-4e73-bc91-c017c81c15d6"</span>,
+    <span class="hljs-string">"paymentRequestId"</span>: <span class="hljs-string">"fa6d3991-874a-4b76-b054-da498fd090a8"</span>,
+    <span class="hljs-string">"amount"</span>: <span class="hljs-number">450</span>,
+    <span class="hljs-string">"currency"</span>: <span class="hljs-string">"GBP"</span>,
+    <span class="hljs-string">"statusCode"</span>: <span class="hljs-number">8000</span>,
+    <span class="hljs-string">"status"</span>: <span class="hljs-string">"SUCCESS"</span>,
+    <span class="hljs-string">"card"</span>: {
+        <span class="hljs-string">"number"</span>: <span class="hljs-string">"1234 **** **** 6666"</span>,
+        <span class="hljs-string">"expiryMonth"</span>: <span class="hljs-number">10</span>,
+        <span class="hljs-string">"expiryYear"</span>: <span class="hljs-number">2019</span>,
+        <span class="hljs-string">"cvv"</span>: <span class="hljs-string">"****"</span>
+    }
+}
+</code></pre>
+<h3><a id="Assumptions_89"></a>Assumptions</h3>
+<ul>
+<li>The Merchant is already registered with Payment gateway.</li>
+<li>There is only one acquiring bank.</li>
+<li>The request to be sent to the acquiring bank and the response to be received from the bank are flat. There is no hierarchy. Hence, the there is no object hierarchy in the Dtos.</li>
+</ul>
