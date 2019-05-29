@@ -23,7 +23,7 @@
 <pre><code class="language-sh"><span class="hljs-comment"># build and start the API service</span>
 Run .\Build.ps1 <span class="hljs-keyword">in</span> PowerShell
 <span class="hljs-comment"># access</span>
-http://localhost:<span class="hljs-number">58427</span>
+http://localhost:<span class="hljs-number">58427</span>/{endpoints} see below <span class="hljs-keyword">for</span> the endpoints
 </code></pre>
 <h3><a id="Endpoints_33"></a>Endpoints</h3>
 <p>Create Payment:</p>
