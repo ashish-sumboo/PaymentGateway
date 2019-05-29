@@ -1,14 +1,43 @@
-# PaymentGateway
-Payment Gateway APIs
-
-This is a set of APIs that connects merchants to acquiring banks to allow them to send their payments. They call also call an API to get the status of their payments.
-
-Features
-
-Uses EntityFramework Core (InMemory Provider) for data storage
-Uses CompositionRoot pattern to register all dependencies using Native .NET Core Dependency Injection
-Interface-based programming
-Validation with FluentValidation
-Swashbuckle to generate API documentation + UI to explore and test endpoints
-AutoRest to generate a client library
-Unit tests using xUnit.net
+<h1><a id="Payment_Gateway_APIs_0"></a>Payment Gateway APIs</h1>
+<p>This is a set of APIs that connects merchants to acquiring banks to allow them to send their payments. They call also call an API to get the status of their payments.</p>
+<h1><a id="Features_6"></a>Features!</h1>
+<ul>
+<li>Uses EntityFramework Core (InMemory Provider) for data storage</li>
+<li>Uses CompositionRoot pattern to register all dependencies using Native .NET Core Dependency Injection</li>
+<li>Interface-based programming</li>
+<li>Validation with FluentValidation</li>
+<li>Unit tests using <a href="http://xUnit.net">xUnit.net</a></li>
+<li>Swashbuckle to generate API documentation + UI to explore and test endpoints</li>
+<li>AutoRest to generate a client library</li>
+</ul>
+<h3><a id="Installation_16"></a>Installation</h3>
+<p>Core Requirements</p>
+<ul>
+<li>.NET Core 2.0</li>
+</ul>
+<p>Optional Requirements</p>
+<ul>
+<li>Docker</li>
+</ul>
+<h3><a id="Endpoints_24"></a>Endpoints</h3>
+<p>Create Payment:</p>
+<pre><code class="language-sh">POST /api/v1/payments
+</code></pre>
+<p>Request body</p>
+<pre><code class="language-sh">{
+  <span class="hljs-string">"amount"</span>: <span class="hljs-number">450</span>,
+  <span class="hljs-string">"currency"</span>: <span class="hljs-string">"GBP"</span>,
+  <span class="hljs-string">"merchantid"</span>:<span class="hljs-string">"testmerchant"</span>,
+  <span class="hljs-string">"customer"</span>: {
+    <span class="hljs-string">"Email"</span>: <span class="hljs-string">"merchant@gmail.com"</span>,
+    <span class="hljs-string">"firstname"</span>: <span class="hljs-string">"test"</span>,
+    <span class="hljs-string">"lastname"</span>: <span class="hljs-string">"test"</span>
+  },
+  <span class="hljs-string">"card"</span>: {
+    <span class="hljs-string">"number"</span>: <span class="hljs-string">"1234555599996666"</span>,
+    <span class="hljs-string">"expirymonth"</span>: <span class="hljs-number">10</span>,
+    <span class="hljs-string">"expiryyear"</span>: <span class="hljs-number">2019</span>,
+    <span class="hljs-string">"cvv"</span>: <span class="hljs-string">"1235"</span>
+  }
+}
+</code></pre>
