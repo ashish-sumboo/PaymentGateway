@@ -47,6 +47,7 @@ http://localhost:<span class="hljs-number">58427</span>
   }
 }
 </code></pre>
+<p>Important Note: The credit card number is encypted before being saved in the payment gateway’s database.</p>
 <p>Sample response</p>
 <pre><code class="language-sh">{
     <span class="hljs-string">"code"</span>: <span class="hljs-number">8000</span>,
@@ -73,7 +74,7 @@ http://localhost:<span class="hljs-number">58427</span>
     }
 }
 </code></pre>
-<h3><a id="Assumptions_89"></a>Assumptions</h3>
+<h3><a id="Assumptions_92"></a>Assumptions</h3>
 <ul>
 <li>The Merchant is already registered with Payment gateway.</li>
 <li>There is only one acquiring bank.</li>
