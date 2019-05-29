@@ -8,7 +8,7 @@
 <li>Validation with FluentValidation</li>
 <li>Unit tests using <a href="http://xUnit.net">xUnit.net</a></li>
 <li>Swashbuckle to generate API documentation + UI to explore and test endpoints</li>
-<li>AutoRest to generate a client library</li>
+<li>AutoRest to generate a client API</li>
 </ul>
 <h3><a id="Installation_16"></a>Installation</h3>
 <p>Core Requirements</p>
