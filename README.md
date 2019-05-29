@@ -13,7 +13,7 @@
 <h3><a id="Installation_16"></a>Installation</h3>
 <p>Core Requirements</p>
 <ul>
-<li>.NET Core 2.0</li>
+<li>.NET Core 1.1+</li>
 </ul>
 <p>Optional Requirements</p>
 <ul>
