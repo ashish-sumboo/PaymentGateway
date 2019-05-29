@@ -1,0 +1,33 @@
+version: '3.5'
+
+networks: 
+  api-net: 
+    external: 
+      name: api-net
+
+services:
+  api:
+    container_name: payment-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ashish/paymentgateway:latest
+    ports:
+      - 58427:80
+    networks: 
+      - api-net
+#    depends_on:
+#      - db
+#  db:
+#    container_name: dev-sql-server
+#    image: mcr.microsoft.com/mssql/server:2017-latest
+#    environment:
+#      - 'ACCEPT_EULA=Y'
+#      - 'SA_PASSWORD=pixelA1+'
+#    ports:
+#      - 1433:1433
+#    networks: 
+#      - api-net 
+    
+
+    
