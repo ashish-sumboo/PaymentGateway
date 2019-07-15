@@ -2,7 +2,7 @@
 <p>This is a set of APIs that connects merchants to acquiring banks to allow them to send their payments. They call also call an API to get the status of their payments.</p>
 <h1><a id="Features_6"></a>Features!</h1>
 <ul>
-<li>Uses EntityFramework Core (InMemory Provider) for data storage</li>
+<li>Uses EntityFramework Core and SQL server for data storage</li>
 <li>Uses CompositionRoot pattern to register all dependencies using Native .NET Core Dependency Injection</li>
 <li>Interface-based programming</li>
 <li>Validation with FluentValidation</li>
@@ -82,4 +82,4 @@ http://localhost:<span class="hljs-number">58427</span>/{endpoints} see below <s
 <li>The request to be sent to the acquiring bank and the response to be received from the bank are flat. There is no hierarchy. Hence, the there is no object hierarchy in the Dtos.</li>
 <li>The bearer token NWY5MzAxNTU4OWZjZWEwMThmMGMyZDk3YmQwYTM1MDgxODZhOGI3ZDM2MDU5MWIwNTQ3ZDA3NDNk is used for authentication. It has to be added in the Authorization header in the client (example: Postman).</li>
 </ul>
-<h3><a id="Improvements_99"></a>Improvements</h3> <ul> <li>Use a containerized DB instead of InMemory.</li> <li>The initialization vector in the encryption algorithm should be randomized.</li> <li>Log4Net could be integrated in the application instead of the native .net core logging.</li> <li>An identity server could be set up to generate and verify the bearer tokens.</li></ul>
+<h3><a id="Improvements_99"></a>Improvements</h3> <ul> <li>The initialization vector in the encryption algorithm should be randomized.</li> <li>Log4Net could be integrated in the application instead of the native .net core logging.</li> <li>An identity server could be set up to generate and verify the bearer tokens.</li></ul>
