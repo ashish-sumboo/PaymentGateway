@@ -12,7 +12,13 @@ Task("Restore").Does(() =>
 
 Task("Build").IsDependentOn("Restore").Does(() =>
 {
-    DotNetCoreBuild("PaymentGatewayService.sln");
+    var settings = new DotNetCoreBuildSettings
+ {
+     Framework = "netcoreapp1.1",
+     Configuration = "Release",
+ };
+	
+	DotNetCoreBuild("PaymentGatewayService.sln", settings);
 });
 
 Task("Publish").Does(() => 

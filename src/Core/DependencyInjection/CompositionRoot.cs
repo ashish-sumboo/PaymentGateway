@@ -26,7 +26,10 @@
 
             logger.LogInformation("Registration of the dependencies of PaymentGatewayService started!");
 
-            services.AddDbContext<ApiDbContext>(opt => opt.UseInMemoryDatabase());
+            //services.AddDbContext<ApiDbContext>(opt => opt.UseInMemoryDatabase());
+
+            services.AddDbContext<ApiDbContext>(opt => opt.UseSqlServer("Server=payment-sql-server;Database=PaymentGateway;User Id=sa;Password=Manager2017;Trusted_Connection=No;"));
+
             services.AddSingleton<IPaymentRequestStore, PaymentRequestStore>();
             services.AddSingleton<IPaymentResponseStore, PaymentResponseStore>();
             services.AddSingleton<IPaymentOrderService, PaymentOrderService>();

@@ -13,6 +13,7 @@ using Core.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
 using Api.Web.Controllers;
 using Api.Web.Middleware;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Web
 {
@@ -75,6 +76,12 @@ namespace Api.Web
                 action.RoutePrefix = "swagger/v1/ui";
                 action.SwaggerEndpoint("/swagger/v1/swagger.json", "Payment Gateway API");
             });
+
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<Core.Database.ApiDbContext>();
+                context.Database.Migrate(); 
+            }
 
             app.UseMiddleware<AuthenticationMiddleware>();
 

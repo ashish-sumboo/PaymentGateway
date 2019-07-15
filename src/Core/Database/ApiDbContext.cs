@@ -15,8 +15,25 @@
         {
         }
 
-        public virtual DbSet<PaymentRequest> PaymentRequests { get; set; }
+        //public virtual DbSet<PaymentRequest> PaymentRequests { get; set; }
 
-        public virtual DbSet<PaymentResponse> PaymentResponses { get; set; }
+        //public virtual DbSet<PaymentResponse> PaymentResponses { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PaymentResponse>(entity =>
+            {
+                entity.HasKey(e => e.Id)
+                      .HasName("PK_PaymentResponse");
+            });
+
+            modelBuilder.Entity<PaymentRequest>(entity =>
+            {
+                entity.HasKey(e => e.Id)
+                .HasName("PK_PaymentRequest");
+            });
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
